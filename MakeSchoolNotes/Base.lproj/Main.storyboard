@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZCg-O4-7WB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6kh-CP-ZKz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,7 @@
                                 <connections>
                                     <outlet property="noteModificationTimeLabel" destination="FLj-CY-p54" id="Lrc-v2-aoe"/>
                                     <outlet property="noteTitleLabel" destination="NV4-Mi-PWc" id="L7D-8h-tvS"/>
-                                    <segue destination="ZCg-O4-7WB" kind="show" id="nfq-Ts-mtI"/>
+                                    <segue destination="ZCg-O4-7WB" kind="show" identifier="displayNote" id="nfq-Ts-mtI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -54,13 +54,19 @@
                             <outlet property="delegate" destination="u2p-Xo-LIX" id="msW-Ug-yhm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notes" id="B5y-cL-JnS"/>
+                    <navigationItem key="navigationItem" title="Notes" id="B5y-cL-JnS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cuR-bW-c4S">
+                            <connections>
+                                <segue destination="ZCg-O4-7WB" kind="show" identifier="addNote" id="vpk-nf-1EY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXi-TP-ue3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1501.5999999999999" y="266.71664167916043"/>
         </scene>
-        <!--Display Note View Controller-->
+        <!--Title-->
         <scene sceneID="CQZ-a1-elc">
             <objects>
                 <viewController id="ZCg-O4-7WB" customClass="DisplayNoteViewController" customModule="MakeSchoolNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,13 +79,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J25-Wt-sA6">
-                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7nC-qg-H9w">
-                                <rect key="frame" x="16" y="66" width="343" height="581"/>
+                                <rect key="frame" x="16" y="110" width="343" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -88,19 +94,37 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="J25-Wt-sA6" firstAttribute="trailing" secondItem="7nC-qg-H9w" secondAttribute="trailing" id="0ZA-nl-bgz"/>
-                            <constraint firstAttribute="bottom" secondItem="7nC-qg-H9w" secondAttribute="bottom" constant="20" symbolic="YES" id="8qA-zS-98n"/>
-                            <constraint firstItem="J25-Wt-sA6" firstAttribute="leading" secondItem="qTJ-Ka-FVJ" secondAttribute="leadingMargin" id="S1J-hZ-gbk"/>
-                            <constraint firstItem="7nC-qg-H9w" firstAttribute="top" secondItem="J25-Wt-sA6" secondAttribute="bottom" constant="8" symbolic="YES" id="a1G-ke-ye3"/>
-                            <constraint firstItem="J25-Wt-sA6" firstAttribute="trailing" secondItem="qTJ-Ka-FVJ" secondAttribute="trailingMargin" id="fly-Rr-gkT"/>
-                            <constraint firstItem="J25-Wt-sA6" firstAttribute="leading" secondItem="7nC-qg-H9w" secondAttribute="leading" id="k9m-Do-wHq"/>
-                            <constraint firstItem="J25-Wt-sA6" firstAttribute="top" secondItem="mvM-CR-PMs" secondAttribute="bottom" constant="8" symbolic="YES" id="mAF-EZ-GDq"/>
+                            <constraint firstItem="J25-Wt-sA6" firstAttribute="leading" secondItem="7nC-qg-H9w" secondAttribute="leading" id="8a3-8V-OxK"/>
+                            <constraint firstItem="7nC-qg-H9w" firstAttribute="top" secondItem="J25-Wt-sA6" secondAttribute="bottom" constant="8" symbolic="YES" id="CJY-zU-rOs"/>
+                            <constraint firstAttribute="bottom" secondItem="7nC-qg-H9w" secondAttribute="bottom" constant="20" symbolic="YES" id="QBa-Jj-1Sx"/>
+                            <constraint firstItem="J25-Wt-sA6" firstAttribute="trailing" secondItem="qTJ-Ka-FVJ" secondAttribute="trailingMargin" id="UmJ-K6-bV2"/>
+                            <constraint firstItem="J25-Wt-sA6" firstAttribute="trailing" secondItem="7nC-qg-H9w" secondAttribute="trailing" id="nJn-Zh-XHt"/>
+                            <constraint firstItem="J25-Wt-sA6" firstAttribute="top" secondItem="mvM-CR-PMs" secondAttribute="bottom" constant="8" symbolic="YES" id="tm2-d8-b9G"/>
+                            <constraint firstItem="J25-Wt-sA6" firstAttribute="leading" secondItem="qTJ-Ka-FVJ" secondAttribute="leadingMargin" id="wM1-jI-lK0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="s4e-R6-4Dd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FLi-RN-PZ0">
+                            <connections>
+                                <segue destination="bsZ-F8-sGV" kind="unwind" identifier="cancel" unwindAction="unwindToListNotesViewController:" id="NfS-GG-TW5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EtC-pg-37p">
+                            <connections>
+                                <segue destination="bsZ-F8-sGV" kind="unwind" identifier="save" unwindAction="unwindToListNotesViewController:" id="fLN-yg-lEU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="noteContentTextView" destination="7nC-qg-H9w" id="jhu-WL-ulM"/>
+                        <outlet property="noteTitleTextView" destination="J25-Wt-sA6" id="YQP-sI-dTm"/>
+                        <outlet property="textViewField" destination="7nC-qg-H9w" id="V27-IW-J0w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GxD-o5-ZtC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bsZ-F8-sGV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2334" y="267"/>
+            <point key="canvasLocation" x="2333.5999999999999" y="266.71664167916043"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gSI-Yc-E8D">
@@ -121,4 +145,7 @@
             <point key="canvasLocation" x="562.39999999999998" y="266.71664167916043"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vpk-nf-1EY"/>
+    </inferredMetricsTieBreakers>
 </document>
